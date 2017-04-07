@@ -11,8 +11,17 @@ Outputs list of [Space/Time ETL steps](https://github.com/nypl-spacetime/spaceti
 
 Installation:
 
+    npm install -g nypl-spacetime/orchestrator
+    spacetime-orchestrator
+
+Or:
+
     git clone https://github.com/nypl-spacetime/orchestrator.git
-
-Usage:
-
+    cd orchestrator
     node index.js
+
+## Commands:
+
+- `list`: Outputs a JSON array with all ETL steps, in the right order
+- `graph`: Outputs a JSON graph of ETL steps and their dependencies
+- `run`: Runs all ETL steps, in the right order

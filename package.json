@@ -1,12 +1,20 @@
 {
   "name": "@spacetime/orchestrator",
-  "version": "0.0.1",
+  "bin": {
+    "spacetime-orchestrator": "index.js"
+  },
+  "version": "0.0.2",
   "description": "Outputs list of Space/Time ETL steps in order based on their `dependsOn` value.",
   "main": "index.js",
   "dependencies": {
     "graphlib": "^2.1.1",
     "highland": "^2.10.2",
+    "minimist": "^1.2.0",
     "ramda": "^0.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nypl-spacetime/orchestrator.git"
   },
   "devDependencies": {},
   "scripts": {
