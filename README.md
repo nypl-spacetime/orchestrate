@@ -1,6 +1,6 @@
-# Space/Time Orchestrator
+# NYC Space/Time Directory Orchestrator
 
-Outputs list of [Space/Time ETL steps](https://github.com/nypl-spacetime/spacetime-etl) in order based on their `dependsOn` value.
+Outputs list of [NYC Space/Time Directory ETL steps](https://github.com/nypl-spacetime/spacetime-etl) in order based on their `dependsOn` value.
 
 ## Prerequisited
 

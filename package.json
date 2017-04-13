@@ -10,7 +10,9 @@
     "graphlib": "^2.1.1",
     "highland": "^2.10.2",
     "minimist": "^1.2.0",
-    "ramda": "^0.23.0"
+    "ramda": "^0.23.0",
+    "spacetime-config": "nypl-spacetime/spacetime-config",
+    "spacetime-etl": "nypl-spacetime/spacetime-etl"
   },
   "repository": {
     "type": "git",
