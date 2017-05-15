@@ -93,9 +93,6 @@ if (mode === 'list') {
     .map(curriedExecute)
     .nfcall([])
     .series()
-    .stopOnError((err) => {
-      console.error(err)
-    })
     .done(() => {
       console.log('Done...')
     })
