@@ -99,7 +99,7 @@ function Orchestrator (options) {
       '}'
     ]
 
-    console.log(dotLines.join('\n'))
+    return dotLines.join('\n')
   }
 
   function run (logging, callback) {
