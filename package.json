@@ -3,7 +3,7 @@
   "bin": {
     "spacetime-orchestrator": "index.js"
   },
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Outputs list of Space/Time ETL steps in order based on their `dependsOn` value.",
   "main": "index.js",
   "dependencies": {
