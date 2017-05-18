@@ -95,6 +95,9 @@ function Orchestrator (options) {
     const graphJSON = graphlib.json.write(graph)
     const dotLines = [
       'digraph spacetime {',
+      '  graph [fontname = "monospace"];',
+      '  node [fontname = "monospace"];',
+      '  edge [fontname = "monospace"];',
       ...graphJSON.edges.map((edge) => `  "${edge.w}" -> "${edge.v}";`),
       '}'
     ]
