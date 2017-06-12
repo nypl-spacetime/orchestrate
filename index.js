@@ -6,9 +6,12 @@ const graphlib = require('graphlib')
 const etl = require('spacetime-etl')
 
 function Orchestrator (options) {
-  options = options || {
-    useSteps: true
+  const defaultOptions = {
+    useSteps: true,
+    exclude: []
   }
+
+  options = Object.assign({}, defaultOptions, options)
 
   const graph = new graphlib.Graph({
     directed: true,
@@ -17,6 +20,7 @@ function Orchestrator (options) {
   })
 
   const modules = etl.modules()
+    .filter((module) => !options.exclude.includes(module.id))
 
   // Add all modules, and their steps
   modules.forEach((module) => {
