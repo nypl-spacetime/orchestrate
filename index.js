@@ -110,6 +110,8 @@ function Orchestrator (options) {
   }
 
   function run (logging, callback) {
+    let errors = false
+
     // Curried ETL function, with logging enabled
     const curriedExecute = R.curry(etl.execute)(R.__, R.__, logging)
 
@@ -117,8 +119,15 @@ function Orchestrator (options) {
       .map(curriedExecute)
       .nfcall([])
       .series()
-      .stopOnError(callback)
-      .done(callback)
+      .stopOnError((err) => {
+        errors = true
+        callback(err)
+      })
+      .done(() => {
+        if (!errors) {
+          callback()
+        }
+      })
   }
 
   return {
@@ -176,9 +185,15 @@ if (require.main === module) {
   } else if (mode === 'dot') {
     console.log(orchestrator.getDot())
   } else if (mode === 'run') {
+
+    let errors = false
+    process.on('exit', () => process.exit(errors ? 1 : 0))
+
     orchestrator.run(true, (err) => {
       if (err) {
-        throw err
+        errors = true
+        console.error('Error! Orchestrator will stop...')
+        console.error(err)
       } else {
         console.log('Done...')
       }
